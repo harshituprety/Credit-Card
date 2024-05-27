@@ -1,0 +1,243 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+:root {
+    --primary-color: #6C7A89;
+    --secondary-color: #00b894;
+    --decor-color: #BDC3C7;
+    --font: "proxima-nova", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    font-family: font;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: primary-color;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #42deec;
+}
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    margin-top: -240px;
+    left: 0;
+    width: 100%;
+}
+
+#container {
+    width: 720px;
+    height: 480px;
+    margin: 0 auto;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    background: rgb(135, 145, 130);
+    background: -moz-linear-gradient(45deg, rgb(150, 192, 127) 0%, rgb(158, 212, 88) 60%, rgb(148, 186, 44) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(178, 184, 174) 0%, rgb(130, 191, 197) 60%, rgb(12, 145, 175) 100%);
+    background: linear-gradient(45deg, rgba(179, 190, 173, 1) 0%, rgb(153, 83, 83) 60%, rgb(146, 6, 6) 100%);
+}
+
+#info {
+    width: 52%;
+    height: 480px;
+    float: left;
+    background: -moz-linear-gradient(45deg, rgb(89, 98, 99) 0%, rgba(94, 133, 138, 0) 56%, rgba(158, 59, 59, 0.272) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(86, 177, 184) 0%, rgba(117, 183, 192, 0) 56%, rgba(193, 65, 65, 0) 100%);
+    background: linear-gradient(45deg, rgb(65, 122, 126) 0%, rgba(113, 223, 238, 0) 56%, rgba(122, 11, 11, 0) 100%);
+
+    #product {
+        width: 300px;
+        margin: 50px 0 50px 65px;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
+        line-height: 1em;
+        letter-spacing: 1px;
+    }
+
+    #price {
+        width: 50%;
+        margin: 0 auto;
+        letter-spacing: 1px;
+
+        h2 {
+            width: 100%;
+            text-align: center;
+            font-weight: 900;
+            color: #000;
+            padding-top: 10px;
+        }
+    }
+}
+
+#payment {
+    width: 40%;
+    float: right;
+    padding: 95px 50px 25px 0;
+}
+
+#checkout {
+    width: 100%;
+
+    input {
+        margin-bottom: 15px;
+    }
+
+    label {
+        float: left;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-size: 0.6em;
+        padding: 0 0 5px 10px;
+    }
+
+    #cvc-label {
+        margin-left: 25px;
+    }
+
+    .card {
+        width: 29%;
+        margin: 0 10% 25px 10%;
+        border: none;
+        background: none;
+        height: 50px;
+        cursor: pointer;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+
+        &:focus {
+            -webkit-filter: none;
+            filter: none;
+        }
+    }
+
+    #visa {
+        background-image: url("logo.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100%;
+    }
+
+    #mastercard {
+        background-image: url("mc-logo-52.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 90%;
+    }
+
+    #cardnumber,
+    #cardholder,
+    #cvc {
+        width: 100%;
+        background: none;
+        border: 1px solid primary-color;
+        padding: 8px 19px;
+        border-radius: 50px;
+        letter-spacing: 1px;
+
+        &:focus {
+            border: 1px solid secondary-color;
+        }
+    }
+
+    ::-webkit-input-placeholder {
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        color: decor-color;
+    }
+
+    #cardnumber {
+        letter-spacing: 3px;
+
+        &::-webkit-input-placeholder {
+            font-size: 1em;
+        }
+    }
+
+    #left {
+        width: 41%;
+        border: 1px solid primary-color;
+        border-radius: 50px;
+        overflow: hidden;
+        padding: 3px 5px;
+        float: left;
+
+        #month,
+        #year {
+            background: none;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            float: left;
+            font-size: 0.8em;
+            letter-spacing: 3px;
+            color: decor-color;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            option {
+                background: #ECECEC;
+            }
+        }
+
+        p {
+            float: left;
+            padding-top: 2px;
+            font-size: 1.2em;
+            color: decor-color;
+            letter-spacing: 3px;
+        }
+    }
+
+    #cvc {
+        width: 48%;
+        float: left;
+        margin-left: 11%;
+    }
+
+    .btn {
+        background: secondary-color;
+        border: none;
+        width: 100%;
+        padding: 12px 10px 10px 10px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 400;
+        color: #ECECEC;
+        cursor: pointer;
+
+        &:hover {
+            background: #16A085;
+        }
+    }
+}
